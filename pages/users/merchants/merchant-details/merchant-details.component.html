@@ -1,0 +1,45 @@
+<div class="client-info-wrapper">
+  <div class="wrapper">
+    <app-client-summary isGoBackButton="true" id="Merchant ID" (onBackButtonClick)="goBack()">
+      <ng-container buttons>
+        <app-button class="edit-button" buttonStyle="dark-outline" [small]="true">{{ 'Edit' | translate }}</app-button>
+        <app-user-status-select [userDetails]="userDetails"></app-user-status-select>
+      </ng-container>
+    </app-client-summary>
+
+    <app-transactions-summary></app-transactions-summary>
+  </div>
+
+  <app-person-details class="client-details" title="Merchant details">
+    <ng-container document-header-buttons>
+      <app-button class="add-document-button" [small]="true" buttonStyle="dark-outline">
+        {{ 'Add document' | translate }}
+      </app-button>
+    </ng-container>
+
+    <ng-container document-body-buttons>
+      <app-button class="document-button" [small]="true" buttonStyle="primary-outline">
+        <div class="button-content">
+          <app-icon iconName="search-document" class="icon"></app-icon>
+          <span>{{ 'Passport' | translate }}</span>
+        </div>
+      </app-button>
+
+      <app-button class="document-button large-button" [small]="true" buttonStyle="primary-outline">
+        <div class="button-content">
+          <app-icon iconName="search-document" class="icon"></app-icon>
+          <span>{{ 'Proof of residence' | translate }}</span>
+        </div>
+      </app-button>
+
+      <app-button class="document-button view-button" [small]="true" buttonStyle="primary-outline">
+        <div class="button-content">
+          <app-icon iconName="search-document" class="icon"></app-icon>
+          <span>{{ 'View all' | translate }}</span>
+        </div>
+      </app-button>
+    </ng-container>
+  </app-person-details>
+</div>
+
+<app-wallet-balances showFeeInput="true"></app-wallet-balances>

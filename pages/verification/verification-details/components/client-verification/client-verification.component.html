@@ -1,0 +1,19 @@
+<app-card class="card">
+  <p class="title">{{ 'Automated verification' | translate }}</p>
+
+  <div class="details-wrapper">
+    <div class="detail">
+      <p class="label">{{ 'MaxMind' | translate }}</p>
+      <app-status class="value" [statusType]="statuses.info">{{ 'Not verified' | translate }}</app-status>
+    </div>
+
+    <div class="detail">
+      <app-button class="verify-button" [small]="true">{{ 'Verify' | translate }}</app-button>
+    </div>
+
+    <div class="detail">
+      <p class="label">{{ 'SiftScience' | translate }}</p>
+      <app-status class="value" [statusType]="statuses.error">{{ 'Rejected \{\{percent\}\}%' | translate: { percent: 50 } }}</app-status>
+    </div>
+  </div>
+</app-card>

@@ -1,0 +1,43 @@
+.block-wrapper {
+  padding: 4rem;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .table {
+    .status-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-right: 20px;
+    }
+
+    .status-header {
+      padding-right: 0;
+    }
+  }
+
+  .pagination {
+    text-align: right;
+  }
+
+  .reset-button {
+    margin-right: 1.5rem;
+    cursor: pointer;
+    color: var(--color-gray-text);
+
+    &:hover {
+      color: var(--app-color-primary-pressed);
+    }
+  }
+}
+

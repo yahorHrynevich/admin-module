@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .input-wrapper {
+    width: 30rem;
+
+    .input {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+
+  .button {
+    width: 30rem;
+  }
+}

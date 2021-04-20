@@ -1,0 +1,34 @@
+.card {
+  padding: 4rem;
+  height: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--color-text);
+}
+
+.details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  .detail {
+    width: 50%;
+    margin-top: 3rem;
+
+    .label {
+      font-size: 1.5rem;
+      color: var(--color-gray-text);
+    }
+
+    .value {
+      font-size: 1.8rem;
+      color: var(--color-text);
+    }
+
+    .verify-button {
+      width: 9rem;
+      margin-top: 0.5rem;
+    }
+  }
+}

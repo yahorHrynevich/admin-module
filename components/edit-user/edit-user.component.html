@@ -1,0 +1,48 @@
+<form [formGroup]="form" (submit)="save()">
+  <div class="wrapper">
+    <div class="input-wrapper">
+      <app-input
+        class="input"
+        formControlName="firstName"
+        [label]="'First Name' | translate"
+      ></app-input>
+
+      <app-input-date
+        class="input"
+        [locale]="locale"
+        [label]="'Date of Birthday' | translate"
+        formControlName="dateOfBirth"
+      ></app-input-date>
+
+      <app-input
+        class="input"
+        formControlName="paCity"
+        [label]="'City' | translate"
+      ></app-input>
+    </div>
+
+    <div class="input-wrapper">
+      <app-input
+        class="input"
+        formControlName="lastName"
+        [label]="'Last Name' | translate"
+      ></app-input>
+
+      <app-input
+        class="input"
+        formControlName="paCountryIso2"
+        [label]="'Country' | translate"
+      ></app-input>
+
+      <app-input
+        class="input"
+        formControlName="paAddress"
+        [label]="'Address' | translate"
+      ></app-input>
+    </div>
+  </div>
+  <div class="button-wrapper">
+    <app-button class="button" buttonType="submit">{{ 'Save' | translate }}</app-button>
+  </div>
+</form>
+

@@ -1,0 +1,39 @@
+<div class="sidebar">
+  <div class="first-part">
+    <img class="logo" src="/assets/images/icons/logo.svg" alt="" routerLink="/admin">
+
+    <div class="menu">
+      <app-menu-item link="/admin/dashboard">
+        <app-parent-item iconName="dashboard" [title]="'Dashboard' | translate"></app-parent-item>
+      </app-menu-item>
+
+      <app-menu-item link="/admin/users">
+        <app-parent-item iconName="users" [title]="'Users' | translate"></app-parent-item>
+        <app-submenu-item link="/admin/users/clients" [title]="'Clients' | translate"></app-submenu-item>
+        <app-submenu-item link="/admin/users/merchants" [title]="'Merchants' | translate"></app-submenu-item>
+      </app-menu-item>
+
+      <app-menu-item link="/admin/security">
+        <app-parent-item iconName="task-complete" [title]="'Security' | translate"></app-parent-item>
+      </app-menu-item>
+
+      <app-menu-item link="/admin/settings">
+        <app-parent-item iconName="settings" [title]="'Settings' | translate"></app-parent-item>
+        <app-submenu-item link="/admin/settings/currencies" [title]="'Currencies' | translate"></app-submenu-item>
+        <app-submenu-item link="/admin/settings/fees" [title]="'Transfer Fee' | translate"></app-submenu-item>
+        <app-submenu-item link="/admin/settings/margin-fee" [title]="'Exchange Margin Fee' | translate"></app-submenu-item>
+      </app-menu-item>
+    </div>
+  </div>
+
+  <div class="second-part">
+    <div class="profile-wrapper">
+      <app-icon class="icon" iconName="notification" routerLink="/admin/notifications"></app-icon>
+      <app-icon class="icon" iconName="profile" (click)="openMenu()"></app-icon>
+      <app-dropdown #dropdown theme="dark" class="dropdown">
+        <app-dropdown-item [title]="'Profile' | translate" (onClick)="openAccountSettings()"></app-dropdown-item>
+        <app-dropdown-item [title]="'Logout' | translate" (onClick)="logout()"></app-dropdown-item>
+      </app-dropdown>
+    </div>
+  </div>
+</div>

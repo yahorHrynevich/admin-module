@@ -1,0 +1,49 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <app-table class="table" [noItemsLabel]="noItemsLabel" [scrollable]="true"
+             [itemsCount]="fees?.length">
+    <ng-container thead class="thead">
+      <tr>
+        <th class="th">
+          {{ 'Currency' | translate }}
+        </th>
+        <th class="th">
+          {{ 'Min Fee' | translate }}
+        </th>
+        <th class="th">
+          {{ 'Max Fee' | translate }}
+        </th>
+        <th class="th">
+          {{ 'Percent Fee' | translate }}
+        </th>
+        <th class="th">
+          {{ 'Base Fee' | translate }}
+        </th>
+      </tr>
+    </ng-container>
+    <ng-container tbody>
+      <ng-container [formArrayName]="formArrayName" *ngFor="let fee of form?.controls.fees['controls']; let i=index">
+
+        <tr class="tr" [formGroupName]="i" *ngIf="fees?.length">
+          <td class="td">
+            <span *ngIf="fees">{{ fees[i].currencyCode }}</span>
+          </td>
+          <td class="td">
+            <app-input class="input" formControlName="minFeeControl"></app-input>
+          </td>
+          <td class="td">
+            <app-input class="input" formControlName="maxFeeControl"></app-input>
+          </td>
+          <td class="td">
+            <app-input class="input" formControlName="percentFeeControl"></app-input>
+          </td>
+          <td class="td">
+            <app-input class="input" formControlName="baseFeeControl"></app-input>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </app-table>
+  <div class="button-wrapper" *ngIf="fees?.length">
+    <app-button class="button" buttonType="submit">{{ 'Save' | translate }}</app-button>
+  </div>
+</form>

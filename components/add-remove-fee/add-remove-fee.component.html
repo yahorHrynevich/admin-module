@@ -1,0 +1,30 @@
+<form *ngIf="type === 'add'" [formGroup]="form">
+  <app-select
+    *ngIf="currenciesStubs"
+    class="select"
+    formControlName="currencyCode"
+    [label]="'Currency code' | translate"
+    [options]="currenciesStubs"
+  ></app-select>
+
+  <app-button *ngIf="currenciesStubs" class="button" (click)="save()">{{ 'Add fee' | translate }}</app-button>
+
+  <p *ngIf="!currenciesStubs">{{ 'No currencies available' | translate }}</p>
+  <app-button *ngIf="!currenciesStubs" class="button" (click)="close()">{{ 'Close' | translate }}</app-button>
+</form>
+
+
+<form *ngIf="type === 'delete'" [formGroup]="form">
+  <app-select
+    *ngIf="currenciesStubs"
+    class="select"
+    formControlName="currencyCode"
+    [label]="'Currency code' | translate"
+    [options]="currenciesStubs"
+  ></app-select>
+
+  <app-button *ngIf="currenciesStubs" class="button" (click)="remove()">{{ 'Remove fee' | translate }}</app-button>
+
+  <p *ngIf="!currenciesStubs">{{ 'No currencies available' | translate }}</p>
+  <app-button *ngIf="!currenciesStubs" class="button" (click)="close()">{{ 'Close' | translate }}</app-button>
+</form>

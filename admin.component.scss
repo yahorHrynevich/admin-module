@@ -1,0 +1,16 @@
+.admin-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1920px;
+
+  .sidebar {
+    flex: 0 0 280px;
+    min-height: 100vh;
+  }
+
+  .content {
+    flex: 1;
+    padding: 4rem;
+    overflow-x: hidden;
+  }
+}

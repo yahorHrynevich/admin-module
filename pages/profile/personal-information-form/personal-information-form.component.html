@@ -1,0 +1,24 @@
+<form class="form" [formGroup]="form">
+  <app-input
+    class="input"
+    formControlName="firstName"
+    [label]="'First name' | translate"
+    [placeholder]="'First name' | translate"
+    [readOnly]="true"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="lastName"
+    [label]="'Last name' | translate"
+    [placeholder]="'Last name' | translate"
+    [readOnly]="true"
+  ></app-input>
+
+  <app-select
+    class="select"
+    formControlName="systemLanguage"
+    [label]="'System language' | translate"
+    [options]="languages"
+  ></app-select>
+</form>

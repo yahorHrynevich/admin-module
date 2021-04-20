@@ -1,0 +1,21 @@
+.tr:hover {
+  .td {
+    background-color: var(--color-card-background);
+    cursor: auto;
+  }
+}
+
+.input {
+  width: 20rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--color-table-border);
+  padding-top: 2rem;
+
+  .button {
+    width: 20rem;
+  }
+}

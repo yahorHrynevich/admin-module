@@ -1,0 +1,15 @@
+.description {
+  font-size: 2rem;
+}
+
+p:nth-child(odd) {
+  margin-bottom: 3rem;
+}
+
+.label {
+  font-size: 1.5rem;
+  line-height: 20px;
+  color: var(--color-gray-text);
+  display: inline-block;
+  margin-bottom: 1rem;
+}

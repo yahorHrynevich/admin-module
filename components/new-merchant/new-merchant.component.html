@@ -1,0 +1,56 @@
+<form class="form" (submit)="submit()" [formGroup]="form">
+  <app-input
+    class="input"
+    formControlName="name"
+    [placeholder]="'Name' | translate"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="email"
+    type="email"
+    [placeholder]="'Email' | translate"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="companyName"
+    [placeholder]="'Company name' | translate"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="address"
+    [placeholder]="'Address' | translate"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="country"
+    [placeholder]="'Country' | translate"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="key"
+    [placeholder]="'Key' | translate"
+  ></app-input>
+
+  <app-input
+    class="input"
+    formControlName="auth"
+    [placeholder]="'Auth' | translate"
+  ></app-input>
+
+  <app-checkbox formControlName="sendInvitation" class="checkbox">
+    {{ 'Send invitation' | translate }}
+  </app-checkbox>
+
+  <app-checkbox formControlName="sendVerificationDocuments" class="checkbox">
+    {{ 'Send verification documents' | translate }}
+  </app-checkbox>
+
+  <div class="buttons-wrapper">
+    <app-button buttonType="submit" class="button-wide">{{ 'Add' | translate }}</app-button>
+  </div>
+</form>

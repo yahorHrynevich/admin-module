@@ -1,0 +1,28 @@
+.form {
+  .input {
+    margin-bottom: 3rem;
+  }
+
+  .checkbox {
+    margin-bottom: 2rem;
+
+    &:last-of-type {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+
+    .button {
+      width: 120px;
+      margin-left: 2rem;
+    }
+
+    .button-wide {
+      width: 100%;
+    }
+  }
+}

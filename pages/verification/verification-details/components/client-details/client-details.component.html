@@ -1,0 +1,46 @@
+<app-card class="card">
+  <p class="title">{{ 'Client details' | translate }}</p>
+
+  <div class="details-wrapper">
+    <div class="detail">
+      <p class="label">{{ 'Registration date' | translate }}</p>
+      <p class="value" *ngIf="userDetails?.createdAt">{{ userDetails?.createdAt | dateDefault }}</p>
+      <p class="value" *ngIf="!userDetails?.createdAt">-</p>
+    </div>
+
+    <div class="detail">
+      <p class="label">{{ 'Date of birth' | translate }}</p>
+      <p class="value" *ngIf="userDetails?.dateOfBirth">{{ userDetails?.dateOfBirth | dateBirthday }}</p>
+      <p class="value" *ngIf="!userDetails?.dateOfBirth">-</p>
+    </div>
+
+    <div class="detail">
+      <p class="label">{{ 'Last login date' | translate }}</p>
+      <p class="value" *ngIf="userDetails?.lastLoginAt">{{ userDetails?.lastLoginAt | dateDefault }}</p>
+      <p class="value" *ngIf="!userDetails?.lastLoginAt">-</p>
+    </div>
+
+<!--    <div class="detail">-->
+<!--      <p class="label">{{ 'API Key' | translate }}</p>-->
+<!--      <p class="value">{{ userDetails?.apiKey }}</p>-->
+<!--    </div>-->
+
+    <div class="detail">
+      <p class="label">{{ 'Status' | translate }}</p>
+      <app-status class="value"
+                  [statusType]="userDetails?.getStatusType()">{{ userDetails?.getStatusName() | translate }}</app-status>
+    </div>
+
+    <div class="detail">
+      <p class="label">{{ 'City' | translate }}</p>
+      <p class="value" *ngIf="userDetails?.paCity">{{ userDetails?.paCity }}</p>
+      <p class="value" *ngIf="!userDetails?.paCity">-</p>
+    </div>
+
+    <div class="detail">
+      <p class="label">{{ 'Country' | translate }}</p>
+      <p class="value" *ngIf="userDetails?.paCountryIso2">{{ userDetails?.paCountryIso2 }}</p>
+      <p class="value" *ngIf="!userDetails?.paCountryIso2">-</p>
+    </div>
+  </div>
+</app-card>

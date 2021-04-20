@@ -1,0 +1,31 @@
+<app-card class="card">
+  <div class="block-wrapper">
+    <div class="header">
+      <app-block-title>{{ 'Transfer Fee' | translate }}</app-block-title>
+    </div>
+
+    <div class="controls">
+      <div>
+        <app-menu-button [ngClass]="{ active: operationName === operations.BUY }"
+                         (click)="setId(operations.BUY)">{{ 'Buy' | translate }}</app-menu-button>
+        <app-menu-button [ngClass]="{ active: operationName === operations.SELL }"
+                         (click)="setId(operations.SELL)">{{ 'Sell' | translate }}</app-menu-button>
+        <!-- TODO implement later -->
+<!--        <app-menu-button [ngClass]="{ active: operationName === operations.CONVERT }"-->
+<!--                         (click)="setId(operations.CONVERT)">{{ 'Convert' | translate }}</app-menu-button>-->
+        <app-menu-button  [ngClass]="{ active: operationName === operations.SEND }"
+                          (click)="setId(operations.SEND)">{{ 'Send' | translate }}</app-menu-button>
+        <app-menu-button [ngClass]="{ active: operationName === operations.DEPOSIT }"
+                         (click)="setId(operations.DEPOSIT)">{{ 'Deposits' | translate }}</app-menu-button>
+        <app-menu-button [ngClass]="{ active: operationName === operations.WITHDRAWAL}"
+                         (click)="setId(operations.WITHDRAWAL)">{{ 'Withdrawals' | translate }}</app-menu-button>
+      </div>
+
+      <div class="buttons">
+        <app-button [small]="true" class="remove-button" (click)="openDeleteFeeModal()">{{ 'Remove fee' }}</app-button>
+        <app-button [small]="true" (click)="openAddFeeModal()">{{ 'Add fee' }}</app-button>
+      </div>
+    </div>
+    <app-fee></app-fee>
+  </div>
+</app-card>

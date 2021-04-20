@@ -1,0 +1,50 @@
+.client-info-wrapper {
+  display: flex;
+  margin-bottom: 2rem;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 37.7%;
+    margin-right: 2rem;
+  }
+
+  .client-details {
+    width: 63.3%;
+  }
+
+  .edit-button {
+    margin-right: 2rem;
+  }
+}
+
+.add-document-button {
+  max-width: 140px;
+}
+
+.document-button {
+  margin-top: 3rem;
+  max-width: 140px;
+
+  .button-content {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      margin-right: 13px;
+      width: 17.35px;
+      height: 20.35px;
+      --icon-color: var(--color-link);
+    }
+  }
+}
+
+.large-button {
+  max-width: 200px;
+  margin-left: 2rem;
+}
+
+.view-button {
+  margin-left: 2rem;
+}
+

@@ -1,0 +1,28 @@
+.block-wrapper {
+  padding: 4rem;
+
+
+  .header{
+    margin-bottom: 5rem;
+  }
+
+  .description {
+    font-size: 2rem;
+  }
+
+  .content {
+    display: flex;
+
+    .personal-info {
+      width: 77%;
+    }
+
+    .line {
+      width: 1px;
+      min-height: 100%;
+      margin-right: 40px;
+      margin-left: 40px;
+      background: var(--color-dark-background);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<app-card class="card">
+  <form class="form" [formGroup]="form" (submit)="submit()">
+    <div class="header">
+      <app-block-title>{{ 'Currencies' | translate }}</app-block-title>
+    </div>
+    <app-table class="table" [noItemsLabel]="noItemsLabel" [scrollable]="true"
+               [itemsCount]="currencies?.length">
+      <ng-container thead class="thead">
+        <tr>
+          <th class="th">
+            {{ 'Name' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Code' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Last updated date' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Minimal transfer amount' | translate }}
+          </th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        <tr class="table-row" *ngFor="let currency of currencies ">
+          <td class="td"><span>{{ currency?.name }}</span></td>
+          <td class="td"><span>{{ currency.code }}</span></td>
+          <td class="td"><span>{{ currency?.details.updatedAt | dateDefault }}</span></td>
+          <td class="td">
+            <app-input class="input" formControlName="{{ currency.code.toLowerCase() }}"></app-input>
+          </td>
+        </tr>
+      </ng-container>
+    </app-table>
+    <div class="button-wrapper">
+      <app-button class="button" buttonType="submit">{{ 'Save' | translate }}</app-button>
+    </div>
+  </form>
+</app-card>

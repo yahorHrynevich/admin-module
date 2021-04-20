@@ -1,0 +1,41 @@
+.block-wrapper {
+  padding: 4rem;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+
+      .search {
+        margin-right: 10rem;
+      }
+
+      .export-button {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  .table {
+    .status-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-right: 20px;
+    }
+
+    .status-header {
+      padding-right: 0;
+    }
+  }
+
+  .pagination {
+    text-align: right;
+  }
+}
+

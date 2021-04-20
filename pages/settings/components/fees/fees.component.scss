@@ -1,0 +1,17 @@
+.card {
+  padding: 4rem;
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .buttons {
+    display: flex;
+
+    .remove-button {
+      margin-right: 2rem;
+    }
+  }
+}

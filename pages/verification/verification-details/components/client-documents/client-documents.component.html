@@ -1,0 +1,23 @@
+<app-card class="card">
+  <div class="header">
+    <app-block-title>{{ 'Documents' | translate }}</app-block-title>
+  </div>
+  <app-table class="table" [itemsCount]="verifications?.length">
+    <ng-container thead>
+      <tr>
+        <th class="th">{{ 'Type' | translate }}</th>
+        <th class="th">{{ 'Date' | translate }}</th>
+        <th class="th">{{ 'Status' | translate }}</th>
+      </tr>
+    </ng-container>
+    <ng-container tbody>
+      <tr *ngFor="let verification of verifications" (click)="openPage(verification)"  >
+        <td class="td td-type">{{ verification.getTypeName() | titlecase }}</td>
+        <td class="td">{{ verification.updatedAt | dateDefault }}</td>
+        <td class="td">
+          <app-status [statusType]="verification.getStatusType()" class="status">{{ verification.getStatusName() | translate | titlecase }}</app-status>
+        </td>
+      </tr>
+    </ng-container>
+  </app-table>
+</app-card>

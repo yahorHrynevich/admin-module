@@ -1,0 +1,52 @@
+<app-card>
+  <div class="block-wrapper">
+    <div class="header">
+      <app-block-title>{{ 'Verification' | translate }}</app-block-title>
+      <div class="search-wrapper">
+        <span class="reset-button" (click)="resetFilters()"
+              *ngIf="showResetButton">{{ 'Reset Filters' | translate }}</span>
+        <app-search-input [searchForm]="form" controlName="search"></app-search-input>
+      </div>
+    </div>
+    <app-table class="table" [noItemsLabel]="noItemsLabel" [scrollable]="false"
+               [itemsCount]="users?.length">
+      <ng-container thead class="thead">
+        <tr>
+          <th class="th">
+            {{ 'Client name' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Client ID' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Documents to verify' | translate }}
+          </th>
+          <th class="th">
+            <div class="status-wrapper status-header">
+              <app-thead-item [form]="form" controlName="status" startPosition="right" [filters]="statuses"
+                              [sorting]="true" [resetFilterObservable$]="resetHistory$">{{ 'Status' | translate }}</app-thead-item>
+            </div>
+          </th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        <tr *ngFor="let user of users | paginate:  { itemsPerPage: pagination?.limit,
+                                                        currentPage: pagination?.pageNumber,
+                                                        totalItems: pagination?.totalRecord }"
+            routerLink="{{ user.uid }}">
+          <td class="td"><span>{{ user.getFullName() }}</span></td>
+          <td class="td"><span>{{ user.uid }}</span></td>
+          <td class="td"><span>{{ user.getDocumentsString() }}</span></td>
+          <td class="td">
+            <div class="status-wrapper">
+              <app-status [statusType]="user.getStatusType()">{{ user.getStatusName() | translate }}</app-status>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </app-table>
+    <div class="pagination">
+      <app-pagination [form]="form" controlName="page"></app-pagination>
+    </div>
+  </div>
+</app-card>

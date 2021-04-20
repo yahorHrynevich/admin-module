@@ -1,0 +1,27 @@
+<div class="notification">
+  <div class="column type">
+    <p class="title">{{ 'Type' | translate }}</p>
+    <p class="description">{{ notification.type }}</p>
+  </div>
+  <div class="column name">
+    <p class="title">{{ 'Name' | translate }}</p>
+    <p class="description">{{ notification.name }}</p>
+  </div>
+  <div class="column country">
+    <p class="title">{{ 'Country' | translate }}</p>
+    <p class="description">{{ notification.country }}</p>
+  </div>
+  <div class="column email">
+    <p class="title">{{ 'Email' | translate }}</p>
+    <p class="description">{{ notification.email }}</p>
+  </div>
+  <div class="column time">
+    <p class="title">{{ 'Time' | translate }}</p>
+    <p class="description">{{ notification.time | dateDefault }}</p>
+  </div>
+  <div class="column button">
+    <app-button [small]="true">
+      <p class="button-title">{{ 'Go to verification' | translate }}</p>
+    </app-button>
+  </div>
+</div>

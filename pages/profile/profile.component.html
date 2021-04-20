@@ -1,0 +1,18 @@
+<ng-container *ngIf="accountDetails$ | async as details">
+<app-card>
+  <div class="block-wrapper">
+    <div class="header">
+      <app-block-title>{{ 'My profile' | translate }}</app-block-title>
+    </div>
+    <div class="content">
+      <div class="personal-info">
+        <span class="description">{{ 'Personal information' | translate }}</span>
+        <app-personal-information-form [accountDetails]="details"></app-personal-information-form>
+        <app-profile-security [accountDetails]="details"></app-profile-security>
+      </div>
+      <div class="line"></div>
+      <app-login-details></app-login-details>
+    </div>
+  </div>
+</app-card>
+</ng-container>

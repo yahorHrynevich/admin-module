@@ -1,0 +1,35 @@
+<app-card class="card">
+  <form class="form" [formGroup]="form" (submit)="submit()">
+    <div class="header">
+      <app-block-title>{{ 'Exchange Margin Fee' | translate }}</app-block-title>
+    </div>
+    <app-table class="table" [noItemsLabel]="noItemsLabel" [scrollable]="true"
+               [itemsCount]="rates?.length">
+      <ng-container thead class="thead">
+        <tr>
+          <th class="th">
+            {{ 'From Currency' | translate }}
+          </th>
+          <th class="th">
+            {{ 'To Currency' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Percent' | translate }}
+          </th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        <tr class="table-row" *ngFor="let rate of rates">
+          <td class="td"><span>{{ rate.currencyFrom.code }}</span></td>
+          <td class="td"><span>{{ rate.currencyTo.code }}</span></td>
+          <td class="td">
+            <app-input class="input" formControlName="{{ rate.currencyFrom.code + '_' + rate.currencyTo.code }}"></app-input>
+          </td>
+        </tr>
+      </ng-container>
+    </app-table>
+    <div class="button-wrapper">
+      <app-button class="button" buttonType="submit">{{ 'Save' | translate }}</app-button>
+    </div>
+  </form>
+</app-card>

@@ -1,0 +1,58 @@
+<app-card>
+  <div class="block-wrapper">
+    <div class="header">
+      <app-block-title>{{ 'Security' | translate }}</app-block-title>
+      <div class="search-wrapper">
+        <app-search-input class="search" [searchForm]="form" controlName="search"></app-search-input>
+        <app-export-button class="export-button"></app-export-button>
+      </div>
+    </div>
+    <app-table class="table" [noItemsLabel]="noItemsLabel"
+               [itemsCount]="(users | search: form.value.search: 'userId').length">
+      <ng-container thead class="thead">
+        <tr>
+          <th class="th th-ip">
+            {{ 'IP' | translate }}
+          </th>
+          <th class="th th-id">{{ 'User ID' | translate }}</th>
+          <th class="th th-name">
+            <app-thead-item [form]="form" controlName="name" [filtering]="false"
+                            [sorting]="true" [resetFilterObservable$]="resetTableObservable$">{{ 'Name' | translate }}</app-thead-item>
+          </th>
+          <th class="th th-email">
+            {{ 'Email' | translate }}
+          </th>
+          <th class="th th-date">
+            <app-thead-item [form]="form" controlName="userId" [filtering]="false"
+                            [sorting]="true" [resetFilterObservable$]="resetTableObservable$">{{ 'Login date' | translate }}</app-thead-item>
+          </th>
+          <th class="th th-status">
+            <div class="status-wrapper status-header">
+              <app-thead-item [form]="form" controlName="status" startPosition="right" [filters]="statuses"
+                              [sorting]="true" [resetFilterObservable$]="resetTableObservable$">{{ 'Status' | translate }}</app-thead-item>
+            </div>
+          </th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        <tr *ngFor="let user of users | search: form.value.search: 'userId' | paginate:  { itemsPerPage: pagination?.limit,
+                                                        currentPage: pagination?.pageNumber,
+                                                        totalItems: pagination?.totalRecord }">
+          <td class="td"><span>{{ user.ip }}</span></td>
+          <td class="td"><span>{{ user.userId }}</span></td>
+          <td class="td"><span>{{ user.name }}</span></td>
+          <td class="td"><span>{{ user.email }}</span></td>
+          <td class="td"><span>{{ user.date | dateDefault }}</span></td>
+          <td class="td">
+            <div class="status-wrapper">
+              <app-status [statusType]="user.status?.type"><span>{{ user.status?.name | translate | titlecase }}</span></app-status>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </app-table>
+    <div class="pagination" *ngIf="(users | search: form.value.search: 'userId').length">
+      <app-pagination [form]="form" controlName="page"></app-pagination>
+    </div>
+  </div>
+</app-card>

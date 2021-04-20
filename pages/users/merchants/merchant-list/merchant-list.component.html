@@ -1,0 +1,72 @@
+<app-card class="card">
+    <div class="header">
+      <app-block-title>{{ 'Merchants' | translate }}</app-block-title>
+      <div class="search-wrapper">
+        <app-search-input [searchForm]="form" controlName="search"></app-search-input>
+        <app-button [small]="true" class="button" [routerLink]="['', { outlets: { modals: ['modal', 'new-merchant'] } }]">
+          {{ 'Add merchant' | translate }}
+        </app-button>
+        <app-export-button class="button"></app-export-button>
+      </div>
+    </div>
+    <app-table class="table" [noItemsLabel]="noItemsLabel" [scrollable]="true"
+               [itemsCount]="(users | search: form.value.search: 'name').length">
+      <ng-container thead class="thead">
+        <tr>
+          <th class="th">
+            <app-thead-item [form]="form" controlName="name" [filtering]="false" [sorting]="true"
+                            [resetFilterObservable$]="resetTable$">{{ 'Name' | translate }}</app-thead-item>
+          </th>
+          <th class="th">
+            {{ 'Email' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Merchant ID' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Code' | translate }}
+          </th>
+          <th class="th">
+            <app-thead-item [form]="form" controlName="currency" [filters]="currencies"
+                            [sorting]="true" [resetFilterObservable$]="resetTable$">{{ 'Currency' | translate }}</app-thead-item>
+          </th>
+          <th class="th">
+            {{ 'Gross Amount' | translate }}
+          </th>
+          <th class="th">
+            {{ 'XMATK Transacted' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Auth' | translate }}
+          </th>
+          <th class="th">
+            {{ 'Client count' | translate }}
+          </th>
+          <th class="th">
+            <app-thead-item [form]="form" controlName="key" [filters]="currencies" startPosition="right"
+                            [sorting]="true" [resetFilterObservable$]="resetTable$">{{ 'Key' | translate }}</app-thead-item>
+          </th>
+        </tr>
+      </ng-container>
+      <ng-container tbody>
+        <tr *ngFor="let user of users | search: form.value.search: 'name' | paginate:  { itemsPerPage: pagination?.limit,
+                                                        currentPage: pagination?.pageNumber,
+                                                        totalItems: pagination?.totalRecord }"
+            routerLink="id">
+          <td class="td"><span>{{ user.name }}</span></td>
+          <td class="td"><span>{{ user.email }}</span></td>
+          <td class="td"><span>{{ user.merchantId }}</span></td>
+          <td class="td"><span>{{ user.code }}</span></td>
+          <td class="td"><span>{{ user.currency }}</span></td>
+          <td class="td"><span>{{ user.grossAmount }}</span></td>
+          <td class="td"><span>{{ user.XMATKTransacted }}</span></td>
+          <td class="td"><span>{{ user.auth }}</span></td>
+          <td class="td"><span>{{ user.clientCount }}</span></td>
+          <td class="td"><span>{{ user.key }}</span></td>
+        </tr>
+      </ng-container>
+    </app-table>
+    <div class="pagination" *ngIf="(users | search: form.value.search: 'name').length">
+      <app-pagination [form]="form" controlName="page"></app-pagination>
+    </div>
+  </app-card>

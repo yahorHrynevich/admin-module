@@ -1,0 +1,17 @@
+.card {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem;
+
+    .title {
+      font-size: 3rem;
+    }
+  }
+
+  .pagination {
+    border-top: 1px solid #3B4454;
+    text-align: right;
+    padding-right: 4rem;
+  }
+}

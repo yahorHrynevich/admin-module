@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  background-color: var(--color-card-background);
+  padding: 1.5rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  display: block;
+  margin: 2rem auto 3rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-wrapper {
+  padding: 4rem 3.5rem 3.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .dropdown {
+    bottom: 12rem;
+    right: 6rem;
+  }
+
+  .icon {
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    margin: 0 2rem;
+    background: var(--color-transparent-background);
+    border-radius: 1rem;
+    cursor: pointer;
+
+    --icon-color: var(--app-color-primary);
+  }
+}

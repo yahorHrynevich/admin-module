@@ -1,0 +1,13 @@
+<ng-container *ngIf="userDetails">
+  <div class="client-details-wrapper">
+    <app-client-summary class="client-summary" [userDetails]="userDetails" (onBackButtonClick)="goBack()"
+                        isGoBackButton="true" [showRole]="true">
+      <ng-container buttons>
+        <app-user-status-select [userDetails]="userDetails"></app-user-status-select>
+      </ng-container>
+    </app-client-summary>
+    <app-client-details class="client-details" [userDetails]="userDetails" ></app-client-details>
+  </div>
+
+  <app-client-documents [verifications]="userVerifications"></app-client-documents>
+</ng-container>
